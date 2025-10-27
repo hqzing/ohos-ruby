@@ -4,7 +4,7 @@
 这个 ruby 是 “portable” 的版本（便携版），可安装到任意目录使用。
 
 ## 获取预构建包
-前往 [release 页面](https://github.com/Harmonybrew/ohos-ruby/releases) 获取
+前往 [release 页面](https://github.com/Harmonybrew/ohos-ruby/releases) 获取。
 
 ## 从源码构建
 这个项目的构建过程较为复杂，部分产物是交叉编译得到，另一部分则是原生编译得到。
