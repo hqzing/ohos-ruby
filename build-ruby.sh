@@ -113,8 +113,9 @@ make -j$(nproc)
 make install
 
 # Codesign
-/opt/ohos-sdk/ohos/toolchains/lib/binary-sign-tool sign -inFile /opt/ruby-3.4.5-ohos-arm64/bin/ruby -outFile /opt/ruby-3.4.5-ohos-arm64/bin/ruby -selfSign 1
-find /opt/ruby-3.4.5-ohos-arm64/lib/ -type f | grep -E '\.so(\.[0-9]+)*$' | xargs -I {} /opt/ohos-sdk/ohos/toolchains/lib/binary-sign-tool sign -inFile {} -outFile {} -selfSign 1
+export PATH=$PATH:/opt/ohos-sdk/ohos/toolchains/lib
+binary-sign-tool sign -inFile /opt/ruby-3.4.5-ohos-arm64/bin/ruby -outFile /opt/ruby-3.4.5-ohos-arm64/bin/ruby -selfSign 1
+find /opt/ruby-3.4.5-ohos-arm64/lib/ -type f | grep -E '\.so(\.[0-9]+)*$' | xargs -I {} binary-sign-tool sign -inFile {} -outFile {} -selfSign 1
 
 cp COPYING /opt/ruby-3.4.5-ohos-arm64/
 
