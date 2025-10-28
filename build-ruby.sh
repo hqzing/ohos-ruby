@@ -62,17 +62,17 @@ tar -zxf zlib-1.3.1-ohos-arm64.tar.gz -C /opt
 tar -zxf libffi-3.4.5-ohos-arm64.tar.gz -C /opt
 
 # Setup env 
-export OHOS_SDK=/opt/ohos-sdk/ohos
-export AS=${OHOS_SDK}/native/llvm/bin/llvm-as
-export CC=${OHOS_SDK}/native/llvm/bin/clang
-export CXX=${OHOS_SDK}/native/llvm/bin/clang++
-export LD=${OHOS_SDK}/native/llvm/bin/ld.lld
-export STRIP=${OHOS_SDK}/native/llvm/bin/llvm-strip
-export RANLIB=${OHOS_SDK}/native/llvm/bin/llvm-ranlib
-export OBJDUMP=${OHOS_SDK}/native/llvm/bin/llvm-objdump
-export OBJCOPY=${OHOS_SDK}/native/llvm/bin/llvm-objcopy
-export NM=${OHOS_SDK}/native/llvm/bin/llvm-nm
-export AR=${OHOS_SDK}/native/llvm/bin/llvm-ar
+export PATH=$PATH:/opt/ohos-sdk/ohos/native/llvm/bin
+export AS=llvm-as
+export CC=clang
+export CXX=clang++
+export LD=lld
+export STRIP=llvm-strip
+export RANLIB=llvm-ranlib
+export OBJDUMP=llvm-objdump
+export OBJCOPY=llvm-objcopy
+export NM=llvm-nm
+export AR=llvm-ar
 export CFLAGS="-fPIC -D__MUSL__=1"
 export CXXFLAGS="-fPIC -D__MUSL__=1"
 
