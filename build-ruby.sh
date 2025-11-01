@@ -147,8 +147,6 @@ printf '%s' "$(cat <<EOF
 This document describes the licenses of all software distributed with the
 bundled application.
 ==========================================================================
-
-
 ruby
 =========
 $ruby_txt
@@ -168,7 +166,6 @@ $zlib_txt
 libffi
 =========
 $libffi_txt
-
 EOF
 )" > /opt/ruby-3.4.5-ohos-arm64/licenses.txt
 
