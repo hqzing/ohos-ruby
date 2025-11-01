@@ -29,7 +29,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ruby
           path: /opt/ruby-3.4.5-ohos-arm64.tar.gz
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
