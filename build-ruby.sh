@@ -60,6 +60,24 @@ export AR=llvm-ar
 export CFLAGS="-fPIC -D__MUSL__=1"
 export CXXFLAGS="-fPIC -D__MUSL__=1"
 
+# 编译 perl。这个 perl 作为开发态工具，不会进入产物中。
+curl -L https://github.com/Perl/perl5/archive/refs/tags/v5.42.0.tar.gz -o perl5-5.42.0.tar.gz
+tar -zxf perl5-5.42.0.tar.gz
+cd perl5-5.42.0
+sed -i 's/defined(__ANDROID__)/defined(__ANDROID__) || defined(__OHOS__)/g' perl_langinfo.h
+./Configure \
+    -des \
+    -Dprefix=/ \
+    -Duserelocatableinc \
+    -Dcc=$CC \
+    -Dcpp=$CXX \
+    -Dar=$AR \
+    -Dnm=$NM \
+    -Accflags=-D_GNU_SOURCE
+make -j$(nproc)
+make install
+cd ..
+
 curl -L -O https://github.com/openssl/openssl/releases/download/openssl-3.3.4/openssl-3.3.4.tar.gz
 tar zxf openssl-3.3.4.tar.gz
 cd openssl-3.3.4
@@ -89,24 +107,6 @@ curl -L -O https://github.com/libffi/libffi/releases/download/v3.4.5/libffi-3.4.
 tar zxf libffi-3.4.5.tar.gz
 cd libffi-3.4.5
 ./configure --prefix=/opt/libffi-3.4.5-ohos-arm64 --enable-static --disable-shared --disable-docs --host=aarch64-linux
-make -j$(nproc)
-make install
-cd ..
-
-# 编译 perl。这个 perl 是开发态依赖，是为了满足 autoconf 运行而安装的，不会进入产物中。
-curl -L https://github.com/Perl/perl5/archive/refs/tags/v5.42.0.tar.gz -o perl5-5.42.0.tar.gz
-tar -zxf perl5-5.42.0.tar.gz
-cd perl5-5.42.0
-sed -i 's/defined(__ANDROID__)/defined(__ANDROID__) || defined(__OHOS__)/g' perl_langinfo.h
-./Configure \
-    -des \
-    -Dprefix=/ \
-    -Duserelocatableinc \
-    -Dcc=$CC \
-    -Dcpp=$CXX \
-    -Dar=$AR \
-    -Dnm=$NM \
-    -Accflags=-D_GNU_SOURCE
 make -j$(nproc)
 make install
 cd ..
