@@ -67,8 +67,7 @@ cd perl5-5.42.0
 sed -i 's/defined(__ANDROID__)/defined(__ANDROID__) || defined(__OHOS__)/g' perl_langinfo.h
 ./Configure \
     -des \
-    -Dprefix=/ \
-    -Duserelocatableinc \
+    -Dprefix=/opt/perl5-5.42.0-ohos-arm64 \
     -Dcc=$CC \
     -Dcpp=$CXX \
     -Dar=$AR \
@@ -77,6 +76,7 @@ sed -i 's/defined(__ANDROID__)/defined(__ANDROID__) || defined(__OHOS__)/g' perl
 make -j$(nproc)
 make install
 cd ..
+export PATH=$PATH:/opt/perl5-5.42.0-ohos-arm64/bin
 
 curl -L -O https://github.com/openssl/openssl/releases/download/openssl-3.3.4/openssl-3.3.4.tar.gz
 tar zxf openssl-3.3.4.tar.gz
