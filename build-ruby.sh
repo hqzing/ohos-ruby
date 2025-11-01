@@ -24,6 +24,8 @@ curl -L -O $(get_apk_url m4)
 curl -L -O $(get_apk_url autoconf)
 curl -L -O $(get_apk_url busybox-static)
 curl -L -O $(get_apk_url make)
+curl -L -O $(get_apk_url grep)
+curl -L -O $(get_apk_url pcre2)
 for file in *.apk; do
   tar -zxf $file -C /
 done
