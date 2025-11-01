@@ -69,7 +69,7 @@ cd perl5-5.42.0
 sed -i 's/defined(__ANDROID__)/defined(__ANDROID__) || defined(__OHOS__)/g' perl_langinfo.h
 ./Configure \
     -des \
-    -Dprefix=/usr/ \
+    -Dprefix=/ \
     -Dcc=$CC \
     -Dcpp=$CXX \
     -Dar=$AR \
