@@ -59,8 +59,8 @@ export OBJDUMP=llvm-objdump
 export OBJCOPY=llvm-objcopy
 export NM=llvm-nm
 export AR=llvm-ar
-export CFLAGS="-fPIC -D__MUSL__=1"
-export CXXFLAGS="-fPIC -D__MUSL__=1"
+# export CFLAGS="-fPIC -D__MUSL__=1"
+# export CXXFLAGS="-fPIC -D__MUSL__=1"
 
 # 编译 perl。这个 perl 作为开发态工具，不会进入产物中。
 curl -L https://github.com/Perl/perl5/archive/refs/tags/v5.42.0.tar.gz -o perl5-5.42.0.tar.gz
