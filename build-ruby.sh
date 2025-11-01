@@ -147,6 +147,7 @@ printf '%s' "$(cat <<EOF
 This document describes the licenses of all software distributed with the
 bundled application.
 ==========================================================================
+
 ruby
 =========
 $ruby_txt
