@@ -154,7 +154,7 @@ $openssl_license
 ==authors==
 $openssl_authors
 
-yaml
+LibYAML
 =============
 $yaml_license
 
